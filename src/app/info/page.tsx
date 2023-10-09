@@ -1,5 +1,13 @@
+import Navbar from "@/components/Navbar";
+
 const Info = () => {
-  return <h1>Info</h1>;
+  return (
+    <main>
+      <header className="flex justify-center">
+        <Navbar />
+      </header>
+    </main>
+  );
 };
 
 export default Info;

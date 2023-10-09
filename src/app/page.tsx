@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import jackImage from "@/assets/images/jack.webp";
+import Navbar from "@/components/Navbar";
 
 const Home = () => {
   return (
@@ -17,25 +17,7 @@ const Home = () => {
         <h1 className="text-[3em] tracking-[.1em] md:text-[4em] lg:text-[5em]">
           Halloween
         </h1>
-        <nav>
-          <ul className="flex gap-[1em] text-[1.5em] md:text-[2em] lg:text-[3em]">
-            <li>
-              <Link className="transition-all hover:underline" href={"/"}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="transition-all hover:underline" href={"/info"}>
-                Info
-              </Link>
-            </li>
-            <li>
-              <Link className="transition-all hover:underline" href={"/games"}>
-                Games
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
       </div>
     </main>
   );
