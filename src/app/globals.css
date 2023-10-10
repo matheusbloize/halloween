@@ -15,5 +15,31 @@ body,
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+img,
+.no-drag {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+::selection {
+  color: #dd0101;
+  background-color: #010101;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #222222;
+  border-right: none;
+  border-left: none;
 }

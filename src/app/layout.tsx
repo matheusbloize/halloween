@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${Star_Wisher.className} bg-[#010101] text-[#FF6400]`}>
+      <body
+        className={`${Star_Wisher.className} bg-[#010101] text-[#FF6400] max-w-[90%] mx-auto`}
+      >
         {children}
       </body>
     </html>

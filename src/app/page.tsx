@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 
 const Home = () => {
   return (
-    <main className="max-w-[90%] mx-auto flex flex-col items-center justify-center group sm:flex-row">
+    <main className="flex flex-col items-center justify-center group sm:flex-row">
       <div>
         <Image
           className="transition-all animate-shine"
