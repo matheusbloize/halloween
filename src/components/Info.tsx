@@ -29,7 +29,12 @@ const Info = ({ image, title, content }: Props) => {
   return (
     <article className="relative bg-[#f6f6f6] h-fit transition-all">
       <div className="border-solid border-[#FF6400] border-[.2em] flex justify-center">
-        <Image className="h-[20em]" src={image} alt={title} />
+        <Image
+          className="h-[20em]"
+          src={image}
+          alt={title}
+          fetchPriority="high"
+        />
       </div>
       <div className="flex justify-end">
         <div className="max-w-[90%] mx-auto ">
