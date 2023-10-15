@@ -18,9 +18,24 @@ const config: Config = {
           "0%, 100%": { filter: "brightness(1)" },
           "50%": { filter: "brightness(2)" },
         },
+        navHome: {
+          "0%, 100%": { rotate: "-96deg" },
+          "50%": { rotate: "-83deg" },
+        },
+        navInfo: {
+          "0%": { rotate: "0deg" },
+          "100%": { rotate: "360deg" },
+        },
+        navGames: {
+          "0%, 100%": { rotate: "12deg" },
+          "50%": { rotate: "-12deg" },
+        },
       },
       animation: {
         shine: "shine 3s ease infinite;",
+        navHome: "navHome 1.5s ease infinite",
+        navInfo: "navInfo 1s ease infinite",
+        navGames: "navGames 1.5s ease infinite",
       },
     },
   },

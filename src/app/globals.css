@@ -43,3 +43,10 @@ img,
   border-right: none;
   border-left: none;
 }
+
+@keyframes home {
+  0% { margin-top: -25em }
+  25% { margin-top: 0em }
+  75% { margin-top: -6em }
+  100% { margin-top: 0em }
+}

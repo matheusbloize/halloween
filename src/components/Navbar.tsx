@@ -1,21 +1,27 @@
 import Link from "next/link";
 
-const Navbar = () => {
+interface Props {
+  customHome?: string;
+  customInfo?: string;
+  customGames?: string;
+}
+
+const Navbar = ({ customHome, customInfo, customGames }: Props) => {
   return (
     <>
       <nav>
         <ul className="flex gap-[1em] text-[1.5em] md:text-[2em] lg:text-[3em]">
-          <li>
+          <li className={`${customHome ? customHome : ""}`}>
             <Link className="transition-all hover:underline" href={"/"}>
               Home
             </Link>
           </li>
-          <li>
+          <li className={`${customInfo ? customInfo : ""}`}>
             <Link className="transition-all hover:underline" href={"/info"}>
               Info
             </Link>
           </li>
-          <li>
+          <li className={`${customGames ? customGames : ""}`}>
             <Link className="transition-all hover:underline" href={"/games"}>
               Games
             </Link>

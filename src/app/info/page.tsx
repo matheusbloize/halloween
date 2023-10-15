@@ -17,9 +17,13 @@ const Info = () => {
   return (
     <main>
       <header className="flex flex-col items-center">
-        <Navbar />
+        <Navbar
+          customHome="origin-right animate-navHome"
+          customInfo="origin-center animate-navInfo"
+          customGames="origin-top animate-navGames"
+        />
       </header>
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center mt-[5em]">
         <h1 className="text-[2.5em]">Halloween Trivia</h1>
         <div className="grid grid-cols-1 gap-[1em] my-[2em] transition-all md:grid-cols-3">
           <InfoComponent
