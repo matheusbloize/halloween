@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import jackImage from "@/assets/images/jack.webp";
 import Navbar from "@/components/Navbar";
 
 const Home = () => {
   const audio = document!.querySelector("audio")! as HTMLAudioElement;
+  const [align, setAlign] = useState(false);
 
   useEffect(() => {
     if (audio && audio.duration > 0) {
@@ -15,6 +16,7 @@ const Home = () => {
       modalDiv.style.display = "none";
       const main = document.querySelector("main")! as HTMLDivElement;
       main.style.alignItems = "center";
+      setAlign(true);
     }
   }, [audio]);
 
@@ -23,15 +25,19 @@ const Home = () => {
     const main = document.querySelector("main")! as HTMLDivElement;
     main.style.alignItems = "center";
     main.style.animation = "home 1s ease-out";
-    main.style.flexDirection = "column";
     const body = document.querySelector("body")! as HTMLBodyElement;
     body.style.overflowY = "scroll";
     const audio = document.querySelector("audio")! as HTMLAudioElement;
     audio.play();
+    setAlign(true);
   };
 
   return (
-    <main className="flex flex-col items-baseline justify-center group sm:flex-row">
+    <main
+      className={`flex ${
+        align ? "flex-col" : "flex-row"
+      } items-baseline justify-center group sm:flex-row`}
+    >
       <div
         onClick={removeModal}
         className="bg-[#010101] absolute w-full h-[100em] z-10 flex justify-center pt-[5em] text-[3em] animate-shine cursor-pointer"
