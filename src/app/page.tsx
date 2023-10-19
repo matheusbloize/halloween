@@ -1,24 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import jackImage from "@/assets/images/jack.webp";
 import Navbar from "@/components/Navbar";
 
 const Home = () => {
-  const audio = document!.querySelector("audio")! as HTMLAudioElement;
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [align, setAlign] = useState(false);
 
   useEffect(() => {
-    if (audio && audio.duration > 0) {
+    audioRef.current = document.querySelector("audio")! as HTMLAudioElement;
+    if (audioRef.current && audioRef.current.currentTime > 0) {
       const modalDiv = document.querySelectorAll("div")[0]! as HTMLDivElement;
       modalDiv.style.display = "none";
       const main = document.querySelector("main")! as HTMLDivElement;
       main.style.alignItems = "center";
       setAlign(true);
     }
-  }, [audio]);
+  }, []);
 
   const removeModal = (e?: React.MouseEvent<HTMLDivElement>) => {
     (e?.target as HTMLDivElement).style.display = "none";
