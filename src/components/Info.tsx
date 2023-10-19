@@ -19,8 +19,6 @@ const Info = ({ image, title, content }: Props) => {
         ? (contentRef.current.style.display = "block")
         : (contentRef.current.style.display = "");
     }
-    console.log(contentRef.current);
-    console.log(e.currentTarget);
     e.currentTarget.style.transform === ""
       ? (e.currentTarget.style.transform = "rotate(180deg)")
       : (e.currentTarget.style.transform = "");

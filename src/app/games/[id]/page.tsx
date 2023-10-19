@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import DragAndDrop from "@/components/DragAndDrop";
@@ -10,6 +11,11 @@ import TicTacToe from "@/components/TicTacToe";
 
 const Game = () => {
   const { id } = useParams();
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
 
   return (
     <main>
@@ -21,7 +27,11 @@ const Game = () => {
       </Link>
       {id === "1" && <TicTacToe />}
       {id === "2" && <DragAndDrop />}
-      {id === "3" && <GuessTheCharacter />}
+      {id === "3" && domLoaded && (
+        <>
+          <GuessTheCharacter />
+        </>
+      )}
     </main>
   );
 };
