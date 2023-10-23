@@ -50,3 +50,27 @@ img,
   75% { margin-top: -6em }
   100% { margin-top: 0em }
 }
+
+@keyframes witch {
+  0% {
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  35% {
+    left: 5vw;
+    bottom: 15vh;
+  }
+  65% {
+    transform: rotate(16deg);
+  }
+  100% {
+    left: 62vw;
+    bottom: 4vh;
+    opacity: 0;
+    transform: rotate(-7deg);
+  }
+}
