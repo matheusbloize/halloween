@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Star_Wisher.className} bg-[#010101] text-[#FF6400] max-w-[90%] mx-auto overflow-y-hidden`}
+        className={`${Star_Wisher.className} bg-[#010101] text-[#FF6400] max-w-[90%] mx-auto overflow-x-hidden`}
       >
         {children}
         <audio loop src="Spook - PeriTune.MP3"></audio>

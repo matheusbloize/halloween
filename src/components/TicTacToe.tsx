@@ -218,7 +218,7 @@ const TicTacToe = () => {
       <audio
         id="witch-audio"
         ref={witchAudioRef}
-        src="../static/audio/tictactoe/witch.MP3"
+        src="/static/audio/witch.MP3"
       ></audio>
     </article>
   );

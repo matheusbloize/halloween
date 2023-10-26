@@ -20,26 +20,88 @@ interface Character {
   name: string;
   image: StaticImageData;
   found: boolean;
+  tip: string;
 }
 
 const characters: Character[] = [
-  { name: "chucky", image: chuckyImage, found: false },
-  { name: "dracula", image: draculaImage, found: false },
-  { name: "frankenstein", image: frankensteinImage, found: false },
-  { name: "freddy kruger", image: freddyImage, found: false },
-  { name: "ghostface", image: ghostfaceImage, found: false },
-  { name: "jack o'lantern", image: jackImage, found: false },
-  { name: "jason voorhess", image: jasonImage, found: false },
-  { name: "jigsaw", image: jigsawImage, found: false },
-  { name: "mummy", image: mummyImage, found: false },
-  { name: "pennywise", image: pennywiseImage, found: false },
-  { name: "witch", image: witchImage, found: false },
-  { name: "zombie", image: zombieImage, found: false },
+  {
+    name: "chucky",
+    image: chuckyImage,
+    found: false,
+    tip: "a famous puppet with a killer mind",
+  },
+  {
+    name: "dracula",
+    image: draculaImage,
+    found: false,
+    tip: "the most famous vampire",
+  },
+  {
+    name: "frankenstein",
+    image: frankensteinImage,
+    found: false,
+    tip: "a sad monster created by several human dead body parts",
+  },
+  {
+    name: "freddy krueger",
+    image: freddyImage,
+    found: false,
+    tip: "an ugly killer who attacks teenagers in their dreams",
+  },
+  {
+    name: "ghostface",
+    image: ghostfaceImage,
+    found: false,
+    tip: "a serial killer who likes to talk on the phone",
+  },
+  {
+    name: "jack o'lantern",
+    image: jackImage,
+    found: false,
+    tip: "the symbol of Halloween, the face on the pumpkins",
+  },
+  {
+    name: "jason voorhees",
+    image: jasonImage,
+    found: false,
+    tip: "the famous Camp Crystal Lake serial killer",
+  },
+  {
+    name: "jigsaw",
+    image: jigsawImage,
+    found: false,
+    tip: "he likes to play games",
+  },
+  {
+    name: "mummy",
+    image: mummyImage,
+    found: false,
+    tip: "an undead creature wrapped in bandage",
+  },
+  {
+    name: "pennywise",
+    image: pennywiseImage,
+    found: false,
+    tip: "an evil entity that feeds on fear",
+  },
+  {
+    name: "witch",
+    image: witchImage,
+    found: false,
+    tip: "a practitioner of witchcraft",
+  },
+  {
+    name: "zombie",
+    image: zombieImage,
+    found: false,
+    tip: "an undead revenant created by reanimating a corpse",
+  },
 ];
 
 const GuessTheCharacter = () => {
   const [character, setCharacter] = useState<Character | null>(null);
   const [gameBeaten, setGameBeaten] = useState(false);
+  const [tries, setTries] = useState(1);
 
   const shuffleCharacters = (characters: Character[]) => {
     const shuffledCharacters: Character[] = [];
@@ -62,6 +124,33 @@ const GuessTheCharacter = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (character?.name) {
+      for (let i = 0; i < character!.name.length; i++) {
+        if (document.getElementById(`tip-${i + 1}`) as HTMLDivElement) {
+          (document.getElementById(
+            `tip-${i + 1}`,
+          ) as HTMLDivElement)!.innerText = "";
+        }
+      }
+      (
+        document.getElementById("character-tip") as HTMLSpanElement
+      ).style.display = "none";
+      (
+        document
+          .getElementById("character-tip")!
+          .parentElement!.querySelector("img") as HTMLImageElement
+      ).alt = "light-off";
+      (
+        document
+          .getElementById("character-tip")!
+          .parentElement!.querySelector("img") as HTMLImageElement
+      ).srcset = "/static/images/guess/light-off.webp";
+      (document.getElementById("giveup") as HTMLDivElement).style.display =
+        "none";
+    }
+  }, [character]);
+
   const handleSubmit = (e?: FormEvent) => {
     e?.preventDefault();
     const inputText = document.querySelectorAll("input")[0];
@@ -75,6 +164,7 @@ const GuessTheCharacter = () => {
       for (let i = 0; i < mixedCharacters.length; i++) {
         if (!mixedCharacters[i].found) {
           setCharacter(mixedCharacters[i]);
+          setTries(1);
         } else if (
           mixedCharacters.every(
             (char) => char.found === mixedCharacters[i].found,
@@ -84,7 +174,22 @@ const GuessTheCharacter = () => {
         }
       }
     } else {
-      console.log("boo");
+      for (let i = 0; i < character!.name.length; i++) {
+        for (let j = 0; j < character!.name.length; j++) {
+          if (
+            Array.from(character!.name)[i] === Array.from(inputText.value)[j]
+          ) {
+            (document.getElementById(
+              `tip-${i + 1}`,
+            ) as HTMLDivElement)!.innerText = character!.name[i];
+          }
+        }
+      }
+      setTries((prev) => prev + 1);
+      if (tries === 3) {
+        (document.getElementById("giveup") as HTMLDivElement).style.display =
+          "block";
+      }
     }
     inputText.value = "";
   };
@@ -96,6 +201,33 @@ const GuessTheCharacter = () => {
     const newMixedCharacters: Character[] = shuffleCharacters(characters);
     setCharacter(newMixedCharacters[0]);
     setGameBeaten(false);
+  };
+
+  const handleTip = (e: React.MouseEvent<HTMLDivElement>) => {
+    (e.currentTarget.children[0] as HTMLImageElement).alt === "light-off"
+      ? (((e.currentTarget.children[0] as HTMLImageElement).alt = "light-on"),
+        ((e.currentTarget.children[0] as HTMLImageElement).srcset =
+          "/static/images/guess/light-on.webp"))
+      : (((e.currentTarget.children[0] as HTMLImageElement).alt = "light-off"),
+        ((e.currentTarget.children[0] as HTMLImageElement).srcset =
+          "/static/images/guess/light-off.webp"));
+
+    const characterTip = document.getElementById(
+      "character-tip",
+    ) as HTMLSpanElement;
+
+    characterTip.style.display === "none"
+      ? (characterTip.style.display = "block")
+      : (characterTip.style.display = "none");
+  };
+
+  const showCharacterName = (e: React.MouseEvent<HTMLDivElement>) => {
+    const audio = e.currentTarget.children[0] as HTMLAudioElement;
+    for (let i = 0; i < character!.name.length; i++) {
+      (document.getElementById(`tip-${i + 1}`) as HTMLDivElement)!.innerText =
+        character!.name[i];
+    }
+    audio.play();
   };
 
   return (
@@ -110,6 +242,41 @@ const GuessTheCharacter = () => {
               fetchPriority="high"
               priority
             />
+          )}
+        </div>
+        <div
+          className={`${
+            gameBeaten ? "hidden" : "flex"
+          } flex-col items-center gap-[1em]`}
+        >
+          <div onClick={handleTip}>
+            <Image
+              className="transition-all cursor-pointer"
+              src="/static/images/guess/light-off.webp"
+              alt="light-off"
+              width={50}
+              height={50}
+            />
+          </div>
+          {character && (
+            <>
+              <span
+                id="character-tip"
+                className="text-[#ffffff] tracking-[.1em]"
+                style={{ display: "none" }}
+              >
+                {character.tip}
+              </span>
+              <div className="flex gap-[.2em] md:gap-[.5em]">
+                {Array.from(character.name).map((letter, index) => (
+                  <div
+                    id={`tip-${index + 1}`}
+                    key={index}
+                    className="w-[1em] h-[2em] border-solid border-[#ffffff] border-[.2em] border-t-0 border-l-0 border-r-0 uppercase md:w-[1.2em]"
+                  ></div>
+                ))}
+              </div>
+            </>
           )}
         </div>
         <form
@@ -147,6 +314,16 @@ const GuessTheCharacter = () => {
         >
           Play again!
         </button>
+      </div>
+      <div
+        id="giveup"
+        className={`${
+          !gameBeaten && "hidden"
+        } bg-[#ffffff] text-[1.2em] py-[.5em] px-[2em] mb-[2em] rounded-full transition-all cursor-pointer hover:text-[#ffffff] hover:bg-[#ff6400]`}
+        onClick={showCharacterName}
+      >
+        Want to give up?
+        <audio src="/static/audio/witch.MP3" />
       </div>
     </article>
   );
