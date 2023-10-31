@@ -22,7 +22,7 @@ const config: Config = {
           "0%, 100%": { rotate: "-96deg" },
           "50%": { rotate: "-83deg" },
         },
-        navInfo: {
+        navTrivia: {
           "0%": { rotate: "0deg" },
           "100%": { rotate: "360deg" },
         },
@@ -46,7 +46,7 @@ const config: Config = {
       animation: {
         shine: "shine 3s ease infinite;",
         navHome: "navHome 1.5s ease infinite",
-        navInfo: "navInfo 1s ease infinite",
+        navTrivia: "navTrivia 1s ease infinite",
         navGames: "navGames 1.5s ease infinite",
         bright: "bright 1s ease infinite",
         lost: "lost 1.5s",

@@ -177,7 +177,8 @@ const GuessTheCharacter = () => {
       for (let i = 0; i < character!.name.length; i++) {
         for (let j = 0; j < character!.name.length; j++) {
           if (
-            Array.from(character!.name)[i] === Array.from(inputText.value)[j]
+            Array.from(character!.name)[i] ===
+            Array.from(inputText.value.toLowerCase())[j]
           ) {
             (document.getElementById(
               `tip-${i + 1}`,
@@ -293,6 +294,7 @@ const GuessTheCharacter = () => {
             <input
               className="pl-[1em] pr-[3em] py-[.5em] border-solid border-[#FF6400] border-[.2em] w-full outline-none transition-all focus:border-[#ffa500]"
               type="text"
+              spellCheck="false"
             />
           )}
         </form>

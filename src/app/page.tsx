@@ -59,7 +59,7 @@ const Home = () => {
         </h1>
         <Navbar
           customHome="origin-right animate-navHome"
-          customInfo="origin-center animate-navInfo"
+          customTrivia="origin-center animate-navTrivia"
           customGames="origin-top animate-navGames"
         />
       </div>

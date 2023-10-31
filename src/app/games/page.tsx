@@ -10,7 +10,7 @@ const Games = () => {
       <header className="flex flex-col items-center">
         <Navbar
           customHome="origin-right animate-navHome"
-          customInfo="origin-center animate-navInfo"
+          customTrivia="origin-center animate-navTrivia"
           customGames="origin-top animate-navGames"
         />
       </header>

@@ -5,11 +5,11 @@ import { useEffect } from "react";
 
 interface Props {
   customHome?: string;
-  customInfo?: string;
+  customTrivia?: string;
   customGames?: string;
 }
 
-const Navbar = ({ customHome, customInfo, customGames }: Props) => {
+const Navbar = ({ customHome, customTrivia, customGames }: Props) => {
   useEffect(() => {
     if (
       (document.querySelector("#spook-audio") as HTMLAudioElement).currentTime >
@@ -37,10 +37,10 @@ const Navbar = ({ customHome, customInfo, customGames }: Props) => {
           </li>
           <li
             onClick={playHomeSong}
-            className={`${customInfo ? customInfo : ""}`}
+            className={`${customTrivia ? customTrivia : ""}`}
           >
-            <Link className="transition-all hover:underline" href={"/info"}>
-              Info
+            <Link className="transition-all hover:underline" href={"/trivia"}>
+              Trivia
             </Link>
           </li>
           <li className={`${customGames ? customGames : ""}`}>
