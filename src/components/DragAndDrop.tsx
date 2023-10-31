@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import eyesImage from "@/assets/images/drag/eyes.png";
-import jackImage from "@/assets/images/drag/jack.jpg";
+import eyesImage from "@/assets/images/games/drag/eyes.png";
+import jackImage from "@/assets/images/games/drag/jack.jpg";
 
 const DragAndDrop = () => {
   const timerRef = useRef<HTMLDivElement | null>(null);

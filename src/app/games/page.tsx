@@ -1,4 +1,6 @@
-import jackImage from "@/assets/images/jack.webp";
+import dragandropImage from "@/assets/images/games/dragandrop.webp";
+import guessthecharacterImage from "@/assets/images/games/guessthecharacter.webp";
+import tictactoeImage from "@/assets/images/games/tictactoe.webp";
 import GameLink from "@/components/GameLink";
 import Navbar from "@/components/Navbar";
 
@@ -17,21 +19,21 @@ const Games = () => {
         <div className="grid grid-cols-1 gap-[1em] my-[2em] transition-all md:grid-cols-2 lg:grid-cols-3">
           <GameLink
             link="games/1"
-            title="game 1"
-            description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, illo esse nihil quaerat recusandae veritatis necessitatibus obcaecati minima nisi ullam cum iusto unde magnam repellendus doloremque dolore reprehenderit hic sed?"
-            image={jackImage}
+            title="Tic Tac Toe"
+            description="One of the two players, on alternate turns, must complete a row, a column or a diagonal with three symbols."
+            image={tictactoeImage}
           />
           <GameLink
             link="games/2"
-            title="game 2"
-            description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, illo esse nihil quaerat recusandae veritatis necessitatibus obcaecati minima nisi ullam cum iusto unde magnam repellendus doloremque dolore reprehenderit hic sed?"
-            image={jackImage}
+            title="Drag And Drop"
+            description="Drag and drop the brighter figures onto their more yellowish representations, watch out for the time."
+            image={dragandropImage}
           />
           <GameLink
             link="games/3"
-            title="game 3"
-            description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, illo esse nihil quaerat recusandae veritatis necessitatibus obcaecati minima nisi ullam cum iusto unde magnam repellendus doloremque dolore reprehenderit hic sed?"
-            image={jackImage}
+            title="Guess The Character"
+            description="See if you can remember the names of famous characters from movies or Halloween culture in general."
+            image={guessthecharacterImage}
           />
         </div>
       </section>

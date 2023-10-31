@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+
+import witchMouseImage from "@/assets/images/games/tictactoe/witch.webp";
 import batsImage from "@/assets/images/info/bats.webp";
 import blackCatImage from "@/assets/images/info/black_cat.webp";
 import frankensteinImage from "@/assets/images/info/frankenstein.webp";
@@ -14,8 +19,25 @@ import InfoComponent from "@/components/Info";
 import Navbar from "@/components/Navbar";
 
 const Info = () => {
+  const handleMouse = (e: React.MouseEvent) => {
+    const circle = document.getElementById("mouse") as HTMLDivElement;
+    const height = circle.clientHeight;
+    const width = circle.clientWidth;
+
+    setTimeout(() => {
+      circle.style.left = `${e.clientX - width / 2 + 20}px`;
+      circle.style.top = `${e.clientY - height / 2 + 20}px`;
+    }, 20);
+  };
+
   return (
-    <main>
+    <main onMouseMove={handleMouse}>
+      <Image
+        src={witchMouseImage}
+        alt="witch"
+        className="hidden md:block fixed pointer-events-none h-[2em] w-[2em] z-20 top-[-50em] border-solid border-[2px] border-[#000000] rounded-[50%] shadow-witch invert mix-blend-difference"
+        id="mouse"
+      />
       <header className="flex flex-col items-center">
         <Navbar
           customHome="origin-right animate-navHome"
@@ -59,7 +81,7 @@ const Info = () => {
           <InfoComponent
             image={frankensteinImage}
             title="Frankenstein's monster"
-            content={`Frankenstein's monster (often incorrectly called Frankenstein) is a creature made of several different dead bodies. Victor Frankenstein creates the monster with his scientific knowledge and your obsession with the idea of creating life in inanimate matter through artificial means. The monster does not have a name, being referred to simply as "the Monster" or "the Creature"`}
+            content={`Frankenstein's monster (often incorrectly called Frankenstein) is a creature made of several different dead bodies. Victor Frankenstein creates the monster with his scientific knowledge and your obsession with the idea of creating life in inanimate matter through artificial means. The monster does not have a name, being referred to simply as "the Monster" or "the Creature".`}
           />
           <InfoComponent
             image={ghostImage}

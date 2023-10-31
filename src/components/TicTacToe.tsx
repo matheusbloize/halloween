@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 
-import backgroundImage from "@/assets/images/tictactoe/background.webp";
-import witchImage from "@/assets/images/tictactoe/witch.webp";
+import backgroundImage from "@/assets/images/games/tictactoe/background.webp";
+import witchImage from "@/assets/images/games/tictactoe/witch.webp";
 
 interface Player {
   name: string;

@@ -22,7 +22,22 @@ export default function RootLayout({
         className={`${Star_Wisher.className} bg-[#010101] text-[#FF6400] max-w-[90%] mx-auto overflow-x-hidden`}
       >
         {children}
-        <audio loop src="Spook - PeriTune.MP3"></audio>
+        <audio id="spook-audio" loop src="/static/audio/Spook - PeriTune.MP3" />
+        <audio
+          id="skeleton-audio"
+          loop
+          src="/static/audio/Skeleton Dance - Myuu.MP3"
+        />
+        <audio
+          id="lullaby-audio"
+          loop
+          src="/static/audio/Sweet Little Lullaby - Darren Curtis.MP3"
+        />
+        <audio
+          id="nightmare-audio"
+          loop
+          src="/static/audio/Reflex Nightmare - Naoya Sakamata.MP3"
+        />
       </body>
     </html>
   );

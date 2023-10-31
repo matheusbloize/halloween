@@ -51,6 +51,9 @@ const config: Config = {
         bright: "bright 1s ease infinite",
         lost: "lost 1.5s",
       },
+      boxShadow: {
+        witch: "0 0 10px black",
+      },
     },
   },
   plugins: [],

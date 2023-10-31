@@ -3,18 +3,18 @@
 import Image, { StaticImageData } from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 
-import chuckyImage from "@/assets/images/guess/chucky.webp";
-import draculaImage from "@/assets/images/guess/dracula.webp";
-import frankensteinImage from "@/assets/images/guess/frankenstein.webp";
-import freddyImage from "@/assets/images/guess/freddy.webp";
-import ghostfaceImage from "@/assets/images/guess/ghostface.webp";
-import jackImage from "@/assets/images/guess/jack.webp";
-import jasonImage from "@/assets/images/guess/jason.webp";
-import jigsawImage from "@/assets/images/guess/jigsaw.webp";
-import mummyImage from "@/assets/images/guess/mummy.webp";
-import pennywiseImage from "@/assets/images/guess/pennywise.webp";
-import witchImage from "@/assets/images/guess/witch.webp";
-import zombieImage from "@/assets/images/guess/zombie.webp";
+import chuckyImage from "@/assets/images/games/guess/chucky.webp";
+import draculaImage from "@/assets/images/games/guess/dracula.webp";
+import frankensteinImage from "@/assets/images/games/guess/frankenstein.webp";
+import freddyImage from "@/assets/images/games/guess/freddy.webp";
+import ghostfaceImage from "@/assets/images/games/guess/ghostface.webp";
+import jackImage from "@/assets/images/games/guess/jack.webp";
+import jasonImage from "@/assets/images/games/guess/jason.webp";
+import jigsawImage from "@/assets/images/games/guess/jigsaw.webp";
+import mummyImage from "@/assets/images/games/guess/mummy.webp";
+import pennywiseImage from "@/assets/images/games/guess/pennywise.webp";
+import witchImage from "@/assets/images/games/guess/witch.webp";
+import zombieImage from "@/assets/images/games/guess/zombie.webp";
 
 interface Character {
   name: string;
@@ -158,7 +158,7 @@ const GuessTheCharacter = () => {
     if (inputText.value.length >= 20) {
       alert("boo 2");
     }
-    if (inputText.value === character!.name) {
+    if (inputText.value.toLowerCase() === character!.name) {
       character!.found = true;
 
       for (let i = 0; i < mixedCharacters.length; i++) {

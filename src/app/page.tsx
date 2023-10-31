@@ -41,7 +41,7 @@ const Home = () => {
     >
       <div
         onClick={removeModal}
-        className="bg-[#010101] absolute w-full h-[100em] z-10 flex justify-center pt-[5em] text-[3em] animate-shine cursor-pointer"
+        className="bg-[#010101] absolute w-full h-[-webkit-fill-available] z-10 flex justify-center pt-[5em] text-[3em] animate-shine cursor-pointer"
       >
         Click to start
       </div>
