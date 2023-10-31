@@ -30,12 +30,26 @@ const config: Config = {
           "0%, 100%": { rotate: "12deg" },
           "50%": { rotate: "-12deg" },
         },
+        bright: {
+          "0%, 100%": { filter: "brightness(1)" },
+          "50%": { filter: "brightness(5.5)" },
+        },
+        lost: {
+          "0%, 100%": {
+            scale: "1",
+          },
+          "50%": {
+            scale: "3.5",
+          },
+        },
       },
       animation: {
         shine: "shine 3s ease infinite;",
         navHome: "navHome 1.5s ease infinite",
         navInfo: "navInfo 1s ease infinite",
         navGames: "navGames 1.5s ease infinite",
+        bright: "bright 1s ease infinite",
+        lost: "lost 1.5s",
       },
     },
   },
