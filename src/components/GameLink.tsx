@@ -75,11 +75,11 @@ const GameLink = ({ link, title, description, image }: Props) => {
       <article className="relative bg-[#f6f6f6] border-solid border-[#FF6400] border-[.2em] h-fit transition-all">
         <div className="h-[20em] flex justify-center">
           <Image
-            priority
-            fetchPriority="high"
             className="w-full"
             src={image}
             alt={title}
+            width={420}
+            height={320}
           />
         </div>
         <div className="flex justify-end">

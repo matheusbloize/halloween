@@ -149,6 +149,8 @@ const DragAndDrop = () => {
           className={`${lost && "animate-lost"} mix-blend-hard-light`}
           src={jackImage}
           alt="jack o'lantern"
+          width={920}
+          height={680}
         />
         <Image
           className={`${

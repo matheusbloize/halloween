@@ -31,7 +31,8 @@ const Info = ({ image, title, content }: Props) => {
           className="h-[20em] w-full"
           src={image}
           alt={title}
-          fetchPriority="high"
+          width={420}
+          height={320}
         />
       </div>
       <div className="flex justify-end">

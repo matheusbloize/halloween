@@ -240,7 +240,8 @@ const GuessTheCharacter = () => {
             <Image
               src={character!.image}
               alt={character!.name}
-              fetchPriority="high"
+              width={250}
+              height={250}
               priority
             />
           )}
